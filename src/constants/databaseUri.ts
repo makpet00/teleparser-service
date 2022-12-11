@@ -1,0 +1,1 @@
+export const databaseUri = "mongodb+srv://makpet:amamuz62@teleparser.fr2ootj.mongodb.net/teleparser_db?retryWrites=true&w=majority";
