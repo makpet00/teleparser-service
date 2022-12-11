@@ -14,8 +14,8 @@ export class Bot {
 
     this.bot.command("/trackers",(ctx: any) => MessageHandler.onAllTrackersRequest(ctx));
     this.bot.command("/new_tracker", (ctx: any) => MessageHandler.onNewTrackerRequest(ctx));
-    this.bot.command("/start_scraping", (ctx: any) => MessageHandler.onScrapingStart(ctx));
-    this.bot.command("/stop_scraping", (ctx: any) => ctx.scene.enter('newTracker'));
+    // this.bot.command("/start_scraping", (ctx: any) => MessageHandler.onScrapingStart(ctx));
+    // this.bot.command("/stop_scraping", (ctx: any) => ctx.scene.enter('newTracker'));
 
     this.bot.launch();
   }
