@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 export interface IItem {
+    itemId: string,
     trackerId: string,
     timestamp?: string,
     url?: string,
@@ -11,6 +12,10 @@ export interface IItem {
 }
 
 const itemSchema = new mongoose.Schema({
+    itemId: {
+        type: String,
+        required: true,
+    },
     url: {
         type: String,
         required: true,

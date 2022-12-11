@@ -35,7 +35,7 @@ export class MessageHandler {
 
       if (existingItems) {
         const filteredItems = items.filter((item) =>
-          existingItems.some((existingItem) => existingItem.id === item?.id) && (item?.price ?? 0) > 100
+          existingItems.some((existingItem) => existingItem.itemId === item?.itemId) && (item?.price ?? 0) > 100
         );
         if (filteredItems.length < 1) {
           console.log("No new items were found!");

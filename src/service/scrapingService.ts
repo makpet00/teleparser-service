@@ -36,9 +36,7 @@ export class ScrapingService {
       let itemsToSave = [];
 
       if (existingItems) {
-        const filteredItems = items.filter((item) =>
-          existingItems.some((existingItem) => existingItem.id === item?.id) && (item?.price ?? 0) > 100
-        );
+        const filteredItems = items.filter((item) => !existingItems.some(existingItem => existingItem.itemId === item?.itemId))
         if (filteredItems.length < 1) {
           console.log("No new items were found!");
           return;
@@ -86,10 +84,10 @@ export class ScrapingService {
           .split("\n")
           .join(" ");
 
-        if (!price || !link) {
+        if (!price || !link || price < 70) {
           return;
         }
-        return { id, title, price, url: link, timestamp };
+        return { itemId: id, title, price, url: link, timestamp };
       });
       return processedItems;
     });
