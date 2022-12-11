@@ -10,7 +10,7 @@ class Main {
         const bot = new Bot(API_KEY, CHAT_ID)
         const interval = setInterval(() => {
             ScrapingService.scrapeAllTrackers(bot.bot)
-        }, 10000)
+        }, 300000)
         
         console.log('Service is up and running')
     }
