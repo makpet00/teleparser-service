@@ -20,7 +20,7 @@
     "dayjs": "^1.11.6",
     "mongodb": "^4.11.0",
     "mongoose": "^6.7.2",
-    "puppeteer": "^19.2.2",
+    "puppeteer": "^18.2.1",
     "telegraf": "^4.10.0",
     "telegraf-stateless-question": "^2.0.1"
   }
