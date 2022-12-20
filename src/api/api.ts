@@ -9,7 +9,7 @@ export class RestAPI {
     const app = express();
     app.use(cors());
     app.get("/run", (req, res) => {
-      console.log("Request received");
+      res.status(200).send('Request received')
       ScrapingService.scrapeAllTrackers(bot);
     });
     app.listen(8080, "0.0.0.0", () => {
