@@ -15,11 +15,6 @@ export class ScrapingService {
   constructor() {}
 
   static async scrapeAllTrackers(bot: Telegraf<Context<Update>>) {
-    if (this.inProgress === true) {
-      console.log('Scraping is in progress, cannot start a new one')
-      return
-    }
-    this.inProgress = true 
     const response = await DatabaseRequestor.getAllTrackers();
     const trackers = response.data;
     if (!trackers || trackers.length < 1) {
@@ -54,7 +49,6 @@ export class ScrapingService {
         bot.telegram.sendMessage(userId, message, { parse_mode: 'Markdown' })
       }
     });
-    this.inProgress = false
   }
 
   static async scrapeItems(url: string, trackerId: string) {
