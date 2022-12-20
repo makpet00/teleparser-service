@@ -10,8 +10,6 @@ import { createMessage } from "../utils/createItemMessage";
 import { DatabaseRequestor } from "./databaseRequestor";
 
 export class ScrapingService {
-  static inProgress: boolean = false
-
   constructor() {}
 
   static async scrapeAllTrackers(bot: Telegraf<Context<Update>>) {
@@ -24,7 +22,13 @@ export class ScrapingService {
       const trackerId = tracker._id.toString();
       const userId = tracker.chatId;
       const response = await DatabaseRequestor.getTrackerItems(trackerId);
-      const items = await ScrapingService.scrapeItems(tracker.url, trackerId);
+      let items: any[]
+      try {
+        items = await ScrapingService.scrapeItems(tracker.url, trackerId);
+      } catch (e) {
+        console.log(e)
+        return
+      } 
       const existingItems = response.data;
       let itemsToSave = [];
 
