@@ -9,9 +9,11 @@ export class RestAPI {
     const app = express();
     app.use(cors());
     app.get("/run", (req, res) => {
-        console.log('Request received')
-        ScrapingService.scrapeAllTrackers(bot)
+      console.log("Request received");
+      ScrapingService.scrapeAllTrackers(bot);
     });
-    app.listen(8080, () => console.log(`Server started on port 8080`));
+    app.listen(8080, "0.0.0.0", () => {
+      console.log(`Listening on port 8080`);
+    });
   }
 }
